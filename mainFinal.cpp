@@ -9,7 +9,15 @@ using namespace std;
 
 struct Array {
     int elements[Max];
-    int Size = 0;
+    int Size;
+    int in;
+    int out;
+    Array () {
+        Size = 0;
+        in = 0;
+        out = 0;
+        attributes[Max]
+    }
     int getSize () {
         return Size;
     }
@@ -77,7 +85,7 @@ int main () {
     find_intents(matrix, row, column, extents, intents);
     print_vector(extents);
     cout<<endl<<endl;
-    quicksortExtents(extents,0,extents.size());
+    quicksortExtents(extents,0,extents.size()-1);
     print_vector(extents);
     /*
     int A[20];
@@ -291,8 +299,23 @@ void swap_array (Array &a, Array &b) {
     b = temp;
 }
 
+//a la day con cua b
+bool sub_Array (Array a, Array b) {
+    if (a.getSize() > b.getSize())
+        return false;
 
+}
 
+void minimizeConcepts_objects (vector <Array> extents, vector <Array> intents) {
+    for (int i = 0; i < extents.size(); i++) {
+        Array temp_ex = extents.at(i);
+        for (int j = i-1; j >= 0;j--) {
+            Array temp = extents.at(j);
+            if (temp.getSize() == temp_ex.getSize())
+                continue;
+        }
+    }
+}
 
 
 
